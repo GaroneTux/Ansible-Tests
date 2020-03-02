@@ -1,0 +1,10 @@
+[servidores_back]
+back10  ansible_ssh_host=192.168.10.10
+back11  ansible_ssh_host=192.168.10.11
+
+[back:children]
+servidores_back
+
+[all:vars]
+ansible_user=vagrant
+ansible_private_key_file="/etc/ansible/key/ansible_id"

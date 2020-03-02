@@ -1,0 +1,34 @@
+---
+#- Cria LV no servidor - CentOS
+# Etore Garone  - garone.tux@gmail.com
+
+
+    - name: Criando LV "{{ LVNAME }}" em {{ ansible_hostname }} e montando em "{{ MOUNT }}"
+      lvol: 
+        vg: "{{ VGNAME }}"
+        lv: "{{ LVNAME }}"
+        size: "{{ SIZE }}"
+
+    - name: Criando ponto de montagem para "{{ LVNAME }}"
+      shell:
+        cmd: "mkdir /{{ MOUNT }}"
+      args:
+        warn: false
+
+    - name: Formatando "{{ LVNAME }}" para xfs
+      shell:
+        cmd: "mkfs.xfs /dev/{{ VGNAME }}/{{ LVNAME }}"
+
+    - name: Backup do FSTAB
+      shell:
+        cmd: cp -Pr /etc/fstab /etc/fstab-BKP
+        
+    - name: Montando "{{ LVNAME }}" em "{{ MONTA }}"
+      mount:
+        path: "/{{ MOUNT }}"
+        src: "/dev/{{ VGNAME }}/{{ LVNAME }}"
+        fstype: xfs
+        state: mounted
+        
+
+...

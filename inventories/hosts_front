@@ -1,0 +1,11 @@
+[servidores_front]
+front01	ansible_ssh_host=192.168.10.1
+front02	ansible_ssh_host=192.168.10.2
+
+
+[front:children]
+servidores_front
+
+[all:vars]
+ansible_user=vagrant
+ansible_private_key_file="/etc/ansible/key/ansible_id" 

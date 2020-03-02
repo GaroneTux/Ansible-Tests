@@ -1,0 +1,9 @@
+---
+# PB para configurar Novo servidor ** especifique valor variavel -e HOST= na chamada
+  - name: Compliance de Servidores Novos - CentOS
+    hosts: "{{  HOST }}"
+    become: yes
+    roles: 
+      - configs_iniciais
+
+ 

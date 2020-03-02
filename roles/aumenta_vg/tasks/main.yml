@@ -1,0 +1,12 @@
+---
+#- Aumenta VG entregue no servidor - CentOS
+# Etore Garone  - garone.tux@gmail.com
+
+    - name: Aumentando "{{ VGNAME }}" em "{{ SIZE }}" com "{{ DEV01 }}"
+      lvg: 
+        vg: "{{ VGNAME }}"
+        pvs: "{{ DEV01 }}"
+        pesize: "{{ SIZE }}"
+        state: present
+
+...

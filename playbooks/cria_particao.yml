@@ -1,0 +1,9 @@
+---
+# PB para criação de partição no servidor ** especifique valor variavel -e HOST= na chamada
+ - name: Cria Partição nos Servidores - CentOS
+   hosts: "{{ HOST }}"
+   become: yes
+   roles: 
+      - cria_particao
+
+... 

@@ -1,0 +1,8 @@
+---
+# PB para instalação de mongoDB 4.2 - CENTOS
+  - name: Instala MongoDB -4.2 - CentOS/RHel
+    hosts: "{{ HOST }}"
+    become: yes
+    roles: 
+      - instala_mongo
+...

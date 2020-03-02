@@ -1,0 +1,15 @@
+
+---
+
+- name: Adiciona repositório para instalação de Mongodb
+  yum_repository:
+    name: MongoDB-Repository
+    description: Repositório do MongoDB versão 4.2
+    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
+    gpgcheck: yes
+    enabled: yes
+    gpgkey: https://www.mongodb.org/static/pgp/server-4.2.asc
+    state: present
+    
+
+...

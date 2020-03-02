@@ -1,0 +1,51 @@
+---
+- name: Ajusta Servidores Novos - CentOS
+  hosts : front
+  become: yes
+
+  tasks:
+
+        - name: Acertando Relogio
+          timezone:
+            name: America/Sao_Paulo
+
+        - name: configura hostname
+          hostname: 
+            name: Front01
+
+        - name: Disable SELinux
+          selinux:
+            state: disabled
+
+        - name: '======== Reboot da maquina  ========'
+          reboot:
+            reboot_timeout: 900
+
+        - name: Insala Epel Release
+          yum:
+           name: epel-release
+           state: latest
+ 
+        - name: Update all packages
+          yum:
+           name: "*"
+           state: latest
+ 
+        - name: Instalação de pacotes e update - CentOS.
+          yum:
+           name: "{{ packages }}"
+           state: latest
+          vars:
+#           packages:
+#                 - net-tools
+#                 - ntpdate
+#                 - screen
+#                 - vim
+#                 - telnet
+#                 - htop
+#                 - nmap
+#                 - tzdata
+#                 - tree
+#'                 - "@Development Tools"
+          when: ansible_distribution == 'CentOS'
+

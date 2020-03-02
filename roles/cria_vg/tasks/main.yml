@@ -1,0 +1,13 @@
+---
+#- Cria  VG no servidor - CentOS
+# Etore Garone  - garone.tux@gmail.com
+
+
+    - name: Criando VG "{{ VGNAME }}"
+      lvg:
+        vg: "{{ VGNAME }}"
+        pvs: "{{ DEV01 }}"
+#        pesize: "{{ SIZE }}"
+        vg_options: --autobackup y
+
+...

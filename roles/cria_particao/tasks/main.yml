@@ -1,0 +1,20 @@
+---
+#- Cria partição e VG no servidor - CentOS
+# Etore Garone  - garone.tux@gmail.com
+
+    - name: Cria Partição "{{ DEV01 }}"
+      parted: 
+        device: "{{ DEV00 }}"
+        number: 1
+        part_start: 0%
+        part_end: 100%
+        state: present
+
+    - name: Define Filesystem xfs 
+      filesystem: 
+        fstype: xfs
+        dev: "{{ DEV01  }}"
+        force: yes
+
+
+...

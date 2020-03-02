@@ -1,0 +1,9 @@
+---
+# PB para aumento do LV no servidor ** especifique valor variavel -e HOST= na chamada
+  - name: Aumenta LV de Servidores - CentOS
+    hosts: "{{ HOST }}"
+    become: yes
+    roles: 
+      - aumenta_lv
+
+ 

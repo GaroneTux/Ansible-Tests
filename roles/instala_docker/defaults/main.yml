@@ -1,0 +1,12 @@
+---
+
+# Var-docker
+ pass:
+    Rezeiram@76
+# Instalar Python pip
+ python:
+   - python-pip
+# Instalar docker-py
+ pip_docker_py:
+   - docker-py
+...

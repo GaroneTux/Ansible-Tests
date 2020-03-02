@@ -1,0 +1,52 @@
+---
+# instala docker, docker compose - inicia e habilita servidor docker - faz logon no docker hub
+# etore.garone@gmail.com
+#
+- name: Instala Docker e Docker Compose - CentOS
+  hosts : front
+  become: yes
+
+  tasks: 
+
+       - name: Download Docker - Script
+         get_url:
+           url: https://get.docker.com/
+           dest: /tmp/install_docker.sh
+           mode: 0700
+
+       - name: Instala Docker 
+         shell: /tmp/install_docker.sh
+
+       - name: Remover script
+         file:
+          state: absent
+          path: /tmp/install_docker.sh
+
+       - name: enable Docker no restart
+         systemd:
+          name: docker
+          enabled: yes
+          masked: no
+
+       - name: Start Docker
+         systemd:
+          name: docker
+          state: started
+          masked: no
+
+       - name: Docker Compose - Download e install
+         get_url:
+          url: https://github.com/docker/compose/releases/download/1.25.4/docker-compose-Darwin-x86_64
+          dest: /usr/docker-compose
+          mode: 0755
+ 
+       - name: Docker Login
+         docker_login:
+          username: garone
+          password: "{{ pass }}"
+#          state: started
+#          masked: no
+          
+          
+...           
+

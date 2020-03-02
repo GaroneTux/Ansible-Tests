@@ -1,0 +1,25 @@
+---
+#- Aumenta LV no servidor - CentOS
+# Certifique tamanho do VG antes!
+# Etore Garone  - garone.tux@gmail.com
+
+
+    - name: Aumentando LV "{{ LVNAME }}" do "{{ HOST }}" em "{{ SIZE }}"
+      lvol: 
+        vg: "{{ VGNAME }}"
+        lv: "{{ LVNAME }}"
+        size: "{{ SIZE }}"
+        shrink: no
+        resizefs: true
+        force: yes
+
+    - name: Aumentando LV "{{ LVNAME }}"
+      shell: 
+        cmd: "lvextend -L +{{ SIZE }} /dev/{{ VGNAME }}/{{ LVNAME }}"
+
+    - name: Resize da LV "{{ LVNAME }}"
+      shell:
+        cmd: "xfs_growfs /dev/{{ VGNAME }}/{{ LVNAME }}"
+
+
+...

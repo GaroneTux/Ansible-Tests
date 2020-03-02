@@ -1,0 +1,8 @@
+---
+# PB para instalação de REPO para install do mongoDB 4.2 - CENTOS
+  - name: Instala repositório MongoDB -4.2 CentOS/RHel
+    hosts: "{{ HOST }}"
+    become: yes
+    roles: 
+      - instala_repo-mongo
+...

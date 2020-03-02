@@ -1,0 +1,69 @@
+---
+#- name: Ajusta Servidores Novos - CentOS
+#  hosts : front
+#  become: yes
+
+#  tasks:
+
+        - name: Configs - /etc/profile
+          lineinfile: dest=/etc/profile line= "{{ item }}"
+          with_items:
+            - 'export HISTSIZE="5000"'
+            - 'export HISTFILESIZE="5000"'
+          tags: etc
+        - name: Acerta Relogio
+          timezone:
+            name: America/Sao_Paulo
+
+        - name: Verifica Firewalld
+          stat:
+            path: /usr/lib/firewalld
+          register: check_fw   # registra a variavel
+
+        - name: Remove Firewalld 
+          service:
+           name: firewalld
+           state: stopped
+           enable: no
+          when: check_fw == true # uso do registro da variavel
+
+        - name: Configura hostname
+          hostname: 
+            name: "{{ HOST }}"
+          register: host_name
+          tags: 
+            - hostname
+
+        - name: Disable SELinux
+          selinux:
+            state: disabled
+
+        - name: Instala Epel Release
+          yum:
+           name: epel-release
+           state: latest
+          tags:
+           - epel
+ 
+        - name: Update all packages
+          yum:
+           name: "*"
+           state: latest
+          tags:
+           - updates
+
+        - name: Instalação de pacotes e update - CentOS.
+          yum:
+           name: "{{ install_packages }}"
+           state: latest
+          tags:
+           - pacotes
+
+        - name: '======== Reboot do Servidor  ========'
+          reboot:
+            reboot_timeout: 900
+          tags: 
+            - reboot
+
+
+...

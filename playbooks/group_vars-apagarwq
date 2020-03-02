@@ -1,0 +1,21 @@
+
+
+# Var-docker
+pass:
+   
+
+
+# Var packages - playbook configs_iniciais.yml 
+packages:
+  - unzip
+  - net-tools
+  - ntpdate
+  - screen
+  - vim
+  - telnet
+  - htop
+  - nmap
+  - tzdata
+  - tree
+#  - "@Development Tools"
+

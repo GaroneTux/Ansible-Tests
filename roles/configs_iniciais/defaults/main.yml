@@ -1,0 +1,21 @@
+---
+
+# Var packages - playbook configs_iniciais.yml >> role omonima
+ install_packages:
+   - bmon
+   - lsof
+   - unzip
+   - net-tools
+   - ntpdate
+   - screen
+   - vim
+   - telnet
+   - htop
+#   - nmap
+   - tzdata
+   - tree
+   - curl
+   - wget
+   - "@Development Tools"
+#
+...

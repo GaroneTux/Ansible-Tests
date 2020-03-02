@@ -1,0 +1,20 @@
+
+---
+
+- name: Instala MongoDB - 4.2 no "{{ ansible_hostname }}"
+  yum:
+    name: mongodb-org
+    state: latest
+
+#    name: "{{ pack_mongo }}"
+#  vars: 
+#    pack_mongo:
+#      -  mongodb-org-4.2.3
+#      -  mongodb-org-server-4.2.3
+#      -  mongodb-org-shell-4.2.3
+#      -  mongodb-org-mongos-4.2.3
+#      -  mongodb-org-tools-4.2.3
+ 
+    
+
+...
