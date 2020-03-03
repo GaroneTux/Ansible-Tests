@@ -1,0 +1,11 @@
+[servidores_out]
+Master-Terraform  ansible_ssh_host=192.168.0.110
+
+
+[out:children]
+servidores_out
+
+
+[all:vars]
+ansible_user=vagrant
+ansible_private_key_file="/etc/ansible/key/ansible_id"
