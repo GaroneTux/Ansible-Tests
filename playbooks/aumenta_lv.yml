@@ -1,5 +1,6 @@
 ---
 # PB para aumento do LV no servidor ** especifique valor variavel -e HOST= na chamada
+# Etore Garone - garone.tux@gmail.com
   - name: Aumenta LV de Servidores - CentOS
     hosts: "{{ HOST }}"
     become: yes

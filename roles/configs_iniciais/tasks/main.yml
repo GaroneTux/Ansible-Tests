@@ -1,4 +1,5 @@
 ---
+# Etore Garone - garone.tux@gmail.com
 #- name: Ajusta Servidores Novos - CentOS
 #  hosts : front
 #  become: yes

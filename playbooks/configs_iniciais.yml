@@ -1,5 +1,6 @@
 ---
 # PB para configurar Novo servidor ** especifique valor variavel -e HOST= na chamada
+# Etore Garone - garone.tux@gmail.com
   - name: Compliance de Servidores Novos - CentOS
     hosts: "{{  HOST }}"
     become: yes

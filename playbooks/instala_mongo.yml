@@ -1,5 +1,6 @@
 ---
 # PB para instalação de mongoDB 4.2 - CENTOS
+# Etore Garone - garone.tux@gmail.com
   - name: Instala MongoDB -4.2 - CentOS/RHel
     hosts: "{{ HOST }}"
     become: yes

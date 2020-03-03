@@ -1,6 +1,8 @@
 ---
 
 # Var packages - playbook configs_iniciais.yml >> role omonima
+# Etore Garone - garone.tux@gmail.com
+
  install_packages:
    - bmon
    - lsof
