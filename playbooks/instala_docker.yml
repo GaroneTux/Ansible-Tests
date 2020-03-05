@@ -2,8 +2,6 @@
 # instala docker, docker compose - inicia e habilita servidor docker - faz logon no docker hub
 # Etore Garone - garone.tux@gmail.com
 #
-
-
   - name: Instala Docker e Docker Compose - CentOS
     hosts: "{{ HOST }}" 
     become: yes
